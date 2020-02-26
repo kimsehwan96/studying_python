@@ -13,6 +13,10 @@ a, b = map(int, input().split())
 print(a+b)
 
 
+
+# ex ) a,b =1,2
+# a=1, b=2 임을 기억하자.
+
 # map 함수는 어떻게 동작 ?
 # list나, dictionary같은 iterable 한 데이터를 인자로 받아
 # list 안의 개별 item을 함수의 인자로 전달
