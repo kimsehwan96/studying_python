@@ -7,5 +7,3 @@ lists_2.sort()
 
 max_num = int(lists_2[n-1])
 min_num = int(lists_2[0])
-
-print("%d %d" %(min_num, max_num))

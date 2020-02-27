@@ -1,0 +1,15 @@
+
+
+input() 함수가 런타임 오류나 시간을 너무 잡아 먹을 땐 ?
+
+
+
+import sys
+
+sys.stdin.readline() 을 이용 할 것 !!
+
+이친구는 개행문자 \n까지 쳐먹으니까 좋은 활용법은
+
+a = list(map(int, sys.stdin.readline().split()))
+
+이러면 a는 리스트구, str이 띄어쓰기 단위로 원소가 먹힌닷.

@@ -1,8 +1,6 @@
-n = 10
 
 
-
-
+n = int(input())
 
 for x in range(n):
     print(x+1)
