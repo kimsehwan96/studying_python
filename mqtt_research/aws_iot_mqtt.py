@@ -13,7 +13,7 @@ privatecerificatePath = ''
 port = 8883 # not websocket/ TLS SSL
 clientId = 'iotconsole-1584544032777-2'
 # for test I wrote test/mac
-topic ='test/mac'
+topic ='test/test'
 
 
 
@@ -58,16 +58,40 @@ myAWSIoTMQTTClient.connect()
 
 loopCount = 0
 
+
+# config custmoized json file.
+
+json_file = [{
+    "message" : "Hello from AWS IoT console",
+    "sensor" : "기",
+     "Input" : "50mA"
+            }]
+
+#object in python -> json object
+json_string = json.dumps(json_file)
+
+# top-level array element test
+
+json_file_root_array = '''[
+    "message": "Hello from AWS IoT console",
+    "name": "1212sdf3jkk2k",
+    "in": "gksdlfgjsdifgdsmmM@@@"
+  ]'''
+
+
+
+
 while True:
     message = {}
     message['message'] = 'Hello, this is awsiot mqtt test'
     message['sequence'] = loopCount
-    messageJson = json.dumps(message)
-    myAWSIoTMQTTClient.publish(topic, messageJson, 1)
+    #messageJson = json.dumps(message)
+    messageJson = json_string
+
+    myAWSIoTMQTTClient.publish(topic, messageJson, 1)   # 데이터 퍼블리싱
     print('Published topic %s: %s\n' % (topic, messageJson))
     loopCount += 1
-    time.sleep(1)
-
+    time.sleep(5)
 
 
 
