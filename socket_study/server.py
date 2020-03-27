@@ -1,10 +1,11 @@
 from socket import *
 
-serverSock = socket(AF_INET, SOCK_STREAM)
-serverSock.bind(('',1234))
-serverSock.listen(1)
+serverSock = socket(AF_INET, SOCK_DGRAM)
+serverSock.bind(('',12345))
+#serverSock.listen(1)
 
-connectionSock, addr = serverSock.accept()
+#connectionSock, addr = serverSock.accept()
+connectionSock, addr = serverSock.recvfrom(1024)
 
 print(str(addr), '에서 접속이 확인되었어요')
 
