@@ -7,6 +7,7 @@ from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 
 # host -> endpoint of aws iot
 host = 'a1xhdkwmknid41-ats.iot.us-west-2.amazonaws.com'
+>>>>>>> master
 rootCAPath = '보안'
 certificatePath ='보안'
 privatecerificatePath = ''
