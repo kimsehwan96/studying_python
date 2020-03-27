@@ -6,10 +6,10 @@ from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 #end point, host , certs define
 
 # host -> endpoint of aws iot
-host = 'a1xhdkwmknid41-ats.iot.us-west-2.amazonaws.com'
-rootCAPath = '/Users/gimsehwan/Downloads/mac_os_iot_certs/RootCA1.pem'
-certificatePath ='/Users/gimsehwan/Downloads/mac_os_iot_certs/c586cd1dab-certificate.pem.crt'
-privatecerificatePath = '/Users/gimsehwan/Downloads/mac_os_iot_certs/c586cd1dab-private.pem.key'
+host = '#'
+rootCAPath = '보안'
+certificatePath ='보안'
+privatecerificatePath = ''
 port = 8883 # not websocket/ TLS SSL
 clientId = 'iotconsole-1584544032777-2'
 # for test I wrote test/mac
