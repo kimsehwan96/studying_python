@@ -53,3 +53,15 @@ print("add_last 함수를 통과한 t는 {}".format(t))
 # 위 상항은 매개변수 m에 넣은 t = (1,2) 객체가 t와 m이라는 이름이 붙었다. 그러니까 (1,2)라는 객체는 변수 t와 m이 참조 하고 있다.
 # n이라는 이름에는 (3,4) 가 붙었다. 
 # 이 때 m += n 을 했을 때 m이라는 변수에 (1,2,3,4) 라는 튜플이 참조되고있다 하지만 t는 변한 것이 아니다.
+
+def add_tuple(t1,t2):
+    t1 += t2
+    return t1 #새로 만들어진 튜플을 반환
+
+print("this is the tuple add function")
+t1 = (1,2)
+t2 = (3,4)
+
+print(" t1 : {}  t2: {} ".format(t1,t2))
+print("after added")
+print("{}".format(add_tuple(t1,t2)))
