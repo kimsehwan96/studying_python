@@ -1,23 +1,24 @@
-# 1  1/1
-# 2 1/2
-# 3 2/1
-# 4 3/1
-#5 2/2
-#6 1/3
-#7 1/4
-#8 2/3
-#9 3/2
-#10 4/1
+def find_depth(n): #몇번째 대각선에 있는지 체크해야 함.
+   line = 1 #줄수 n -> 몇번째인지.
+   while n > line:
+      n -= line # n = n - line
+      line += 1 # line = line + 1
 
-flag = 0 # upper side , 1 -> lower side
-   4     10       19           31 
-1     5     15          34              65
+   return line, n
+def print_answer(args): #line, n
+   line, n = args
+   if line % 2 == 0:
+      a = n
+      b = line - n + 1
+   else:
+      a = line -n + 1
+      b = n
+   print(a, '/', b, sep='')
+#짝수번째 줋 -> 분자는 오름, 분모는 내림 홀수번째 줄 -> 분자는 내림, 분모는 오름
+if __name__ == "__main__":
+   num = int(input())
 
-1 // 2 3 //4 5 6 // 7 8 9 10 // 11 12 13 14 15//        x
-1     2       3        4             5                  Index
-
-for n in range(x): # x -> 5    /// n -> 0 , 1, 2, 3
-
-
-
-
+   if num == 1:
+      print("1/1")
+   else:
+      print_answer(find_depth(num))
