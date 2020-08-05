@@ -4,8 +4,7 @@ import struct
 from time import sleep
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
-sock.bind(('127.0.0.1',5006)) #for nazare platform
+#for nazare platform
 
 while True:
     float_data = random.uniform(1,100) #for random float
