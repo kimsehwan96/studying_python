@@ -12,7 +12,7 @@ while True:
     data = struct.pack('f', float_data)
     try:
         sock.sendto(data,('127.0.0.1',5006))
-        print("data was sent {}".format(data))
+        print("data was sent : original data : {}, packed : {}".format(float_data, data))
     except Exception as e:
         print("error was occured {}".format(e))
     sleep(1) # delay for 1 second
