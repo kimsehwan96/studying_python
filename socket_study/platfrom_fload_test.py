@@ -12,8 +12,9 @@ while True:
     data = struct.pack('f', float_data)
     try:
         sock.sendto(data,('127.0.0.1',5006))
-    except Exception as e:
         print("data was sent {}".format(data))
+    except Exception as e:
+        print("error was occured {}".format(e))
     sleep(1) # delay for 1 second
 
 # for test one float data test logic.
