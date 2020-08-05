@@ -1,7 +1,7 @@
 from socket import *
 
 clientSock = socket(AF_INET, SOCK_STREAM)
-clientSock.connect(('127.0.0.1', 1234))
+clientSock.connect(('127.0.0.1', 12345))
 
 print('연결 확인되었습니다')
 clientSock.send('I am a client'.encode('utf-8'))
