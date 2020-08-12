@@ -1,18 +1,22 @@
 from socket import *
+from time import sleep 
+import struct
+import random
 
+fmt = '8h40f'
 clientSock = socket(AF_INET, SOCK_STREAM)
-clientSock.connect(('127.0.0.1', 12345))
-
-print('연결 확인되었습니다')
-clientSock.send('I am a client'.encode('utf-8'))
-
-print('메시지를 전송했습니다.')
-
+clientSock.connect(('192.168.0.100', 2006))
+clientSock.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
+print(clientSock)
 
 while True:
+    sleep(1)
     data = clientSock.recv(1024)
-    print('받은 데이터:', data.decode('utf-8'))
-
-    sendData = input('>>>')
-    clientSock.send(sendData.encode('utf-8'))
-    
+    print('raw data', data)
+    print("parsed data {}".format(struct.unpack(fmt,data)))
+    sleep(0.1)
+    values = [1024, 512]
+    binary_data = struct.pack('h' * len(values), *values)
+    clientSock.sendall(binary_data)
+    print("bindary was sent {}".format(binary_data))
+    clientSock.
