@@ -1,4 +1,4 @@
-#asyncio
+# asyncio
 
 * asyncio는 비동기 프로그래밍을 위한 모듈
     CPU작업과 I/O를 병렬로 처리 가능하게 해준다
@@ -9,7 +9,7 @@
 
 * 네이티브 코루틴과 제네레이터 기반 코루틴
 
-'''python3
+```python3
 async def func():
     pass #do something
 ```
