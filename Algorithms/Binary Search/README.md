@@ -11,7 +11,8 @@
 * 1. 정방향으로 푸는 방법
 * 2. 재귀로 푸는 방법
 
-`[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]`
+`[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]`  
+
 위와 같은 배열에서 배열의 중간을 잘라서, 중간값보다 Target이 작으면 왼쪽부분만 비교한다. (이걸 반복)
 
 ```python3
@@ -33,3 +34,30 @@ while left<=right:
     else :
         left = mid+1
 ```
+
+```python3
+def binarySearch(array, target, left, right):
+    middle_idx = (left+right)//2
+    print(middle_idx)
+    middle = array[middle_idx]
+    if target == middle:
+        print('answer {}'.format(middle_idx))
+    elif middle > target:
+        binarySearch(array, target,left,middle_idx-1)
+    elif middle < target:
+        binarySearch(array, target,middle_idx+1,right)
+    else: 
+        return False
+
+target = 25
+m_list = [30, 94, 27, 92, 21, 37, 25, 47, 25, 53, 98, 19, 32, 32, 7]
+length = len(m_list)
+
+m_list.sort()
+left = 0 
+right = length-1
+
+binarySearch(m_list,target,0,right)
+```
+
+    정보처리산업기사 취득할때 공부한 알고리즘인데 까먹음
