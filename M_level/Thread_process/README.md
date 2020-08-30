@@ -124,3 +124,84 @@ cpu 작업이 적고, I/O 작업이 많은 병렬 처리 프로그램에서 효�
 
 프로세스는 각자 고유한 메모리를 가지기 때문에 자원은 더 많이 쓰지만 
 병렬로 cpu 작업을 할 수 있고 분산처리 프로그래밍도 가능하다 !!
+
+
+## 스레드 쓸 때 동기화?
+
+lock.acquire()를 이용하는 거 같은데 자세히 알아봐야겠다.  
+
+lock은 먼저 진입한 쓰레드가 작업을 완료 후 다른 쓰레드에 제어권을 넘기는 과정을 통해서  
+
+쓰레드의 동기화를 가능하게 한다.
+
+
+## join 메서드
+
+```python3
+
+import threading
+
+tot = 0
+lock = threading.Lock()
+
+def add_total(amount):
+
+    global tot
+    lock.acquire()
+
+    try:
+        tot += amount
+    finally:
+        lock.release()
+    print(threading.current_thread().getName() + 'sync', tot)
+
+
+if __name__ == "__main__":
+    for i in range(10000):
+        my_thread = threading.Thread(
+            target = add_total, args=(1,)
+        )
+    
+        my_thread.start()
+        #my_thread.join()
+
+```
+
+상기 파이썬 프로그램을 실행해보면
+
+```console
+Thread-9953sync 9953
+Thread-9935sync 9935
+Thread-9989sync 9989
+Thread-9967sync 9967
+Thread-9840sync 9840
+Thread-9979sync 9979
+Thread-9991sync 9991
+Thread-9947sync 9947
+Thread-9968sync 9968
+```
+
+마지막 부분만 발췌했는데... 순서가 뒤죽박죽??
+
+join() 메서드는 스레드가 멈출 때 까지 기다림. join 메서드 부분 주석 해제하면
+
+```console
+
+hread-9990sync 9990
+Thread-9991sync 9991
+Thread-9992sync 9992
+Thread-9993sync 9993
+Thread-9994sync 9994
+Thread-9995sync 9995
+Thread-9996sync 9996
+Thread-9997sync 9997
+Thread-9998sync 9998
+Thread-9999sync 9999
+Thread-10000sync 10000
+
+```
+
+매우 순서가 잘 맞게 나온다.
+
+
+
