@@ -1,5 +1,7 @@
 #Singkle Linked List
 # From https://underflow101.tistory.com/3
+# https://wayhome25.github.io/cs/2017/04/17/cs-19/
+# https://opentutorials.org/module/1335/8821
 
 class Node(object):
     def __init__(self, data, next = None):
